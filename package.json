@@ -1,0 +1,39 @@
+{
+  "name": "discuss",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "dotenv -e .env.local -- next dev",
+    "build": "prisma migrate deploy && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prisma:migrate:local": "dotenv -e .env.local -- npx prisma migrate dev --schema=prisma/schema.prisma",
+    "prisma:generate:local": "dotenv -e .env.local -- npx prisma generate --schema=prisma/schema.prisma",
+    "postinstall": "prisma generate",
+    "start:db": "docker run --rm -p 5432:5432 -v postgres-data:/var/lib/postgresql/data -e POSTGRES_HOST_AUTH_METHOD=trust postgres"
+  },
+  "dependencies": {
+    "@auth/core": "^0.37.4",
+    "@auth/prisma-adapter": "^2.7.4",
+    "@nextui-org/react": "^2.4.8",
+    "@prisma/client": "^5.22.0",
+    "dotenv-cli": "^8.0.0",
+    "framer-motion": "^11.13.0",
+    "next": "15.0.3",
+    "next-auth": "^5.0.0-beta.25",
+    "react": "19.0.0-rc-66855b96-20241106",
+    "react-dom": "19.0.0-rc-66855b96-20241106",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "15.0.3",
+    "postcss": "^8",
+    "prisma": "^6.1.0",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}
